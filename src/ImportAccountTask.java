@@ -1,6 +1,9 @@
+import utilities.AmazonMusicAccount;
 import utilities.MusicAccountService;
 
-public class ImportAccountTask {
+import java.util.concurrent.Callable;
+
+public class ImportAccountTask implements Callable<AmazonMusicAccount> {
     // PARTICIPANTS: Complete this class's declaration and implement the call() method.
 
     private MusicAccountService accountService;
@@ -26,11 +29,13 @@ public class ImportAccountTask {
 
     /**
      * Code to be executed in ExecutorService.
-     * PARTICIPANTS: complete this method's declaration and implementation. It should retrieve the AmazonMusicAccount
-     *   from the MusicAccountService.
+     * PARTICIPANTS: complete this method's declaration and implementation.
+     * It should retrieve the AmazonMusicAccount
+     * from the MusicAccountService.
+     *
      * @return AmazonMusicAccount object.
      */
-    public Object call() {
-        return null;
+    public AmazonMusicAccount call() {
+        return accountService.getAccount(accountID);
     }
 }
